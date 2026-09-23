@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HobbyFlix — Don't choose your next hobby. Discover it.</title>
+<meta name="description" content="HobbyFlix learns what makes you curious and recommends hobbies you're actually likely to enjoy. Try any of them in seven days before you commit.">
+<meta name="theme-color" content="#07080B">
+<meta property="og:title" content="HobbyFlix — Don't choose your next hobby. Discover it.">
+<meta property="og:description" content="Netflix recommends what you watch next. HobbyFlix recommends what you try next.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/gate.css">
+</head>
+<body>
+<noscript><p style="padding:40px;font-family:system-ui;color:#fff;background:#07080B">HobbyFlix needs JavaScript turned on to run.</p></noscript>
+
+
+<!-- ============ ICON SPRITE ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="i-camera" viewBox="0 0 24 24"><path d="M3 8h3.2l1.9-2.2h7.8L18 8h3v11H3z"/><circle cx="12" cy="13" r="3.4"/></symbol>
+<symbol id="i-pottery" viewBox="0 0 24 24"><path d="M9.2 3h5.6l-1 3.1c2.9 1.2 4 3.8 4 6.6a6.8 6.8 0 0 1-11.6 4.8A6.6 6.6 0 0 1 4.2 12.7c0-2.8 1.1-5.4 4-6.6z"/><path d="M8.6 3h6.8"/></symbol>
+<symbol id="i-chess" viewBox="0 0 24 24"><path d="M12 3a2.8 2.8 0 0 1 1.7 5c1.2 1.1 1.9 2.7 2 4.4H8.3c.1-1.7.8-3.3 2-4.4A2.8 2.8 0 0 1 12 3z"/><path d="M8.3 12.4h7.4l-.7 4.6H9z"/><path d="M6.5 21h11l-1.3-4H7.8z"/></symbol>
+<symbol id="i-guitar" viewBox="0 0 24 24"><path d="M20.5 3.5 17 7"/><path d="M17.6 6.4 15 9"/><path d="M14.4 9.6a5.6 5.6 0 1 1-4.8 4.8"/><circle cx="10.5" cy="14.5" r="1.9"/></symbol>
+<symbol id="i-cooking" viewBox="0 0 24 24"><path d="M3.5 9.5h17v3.2a6.3 6.3 0 0 1-6.3 6.3h-4.4a6.3 6.3 0 0 1-6.3-6.3z"/><path d="M2 11.5h1.5M20.5 11.5H22"/><path d="M9.5 6.6c0-1.3 1.2-1.4 1.2-2.6M13.6 6.6c0-1.3 1.2-1.4 1.2-2.6"/></symbol>
+<symbol id="i-skate" viewBox="0 0 24 24"><path d="M3.5 12.5h17a1.6 1.6 0 0 1-1.1 2.7H4.6a1.6 1.6 0 0 1-1.1-2.7z"/><circle cx="7.5" cy="18" r="1.8"/><circle cx="16.5" cy="18" r="1.8"/><path d="M7.5 15.2v1M16.5 15.2v1"/></symbol>
+<symbol id="i-dj" viewBox="0 0 24 24"><circle cx="7" cy="15" r="4.2"/><circle cx="17" cy="9" r="4.2"/><circle cx="7" cy="15" r="1"/><circle cx="17" cy="9" r="1"/><path d="M10.3 12.4 13.8 9"/></symbol>
+<symbol id="i-paint" viewBox="0 0 24 24"><path d="M12 3.2c-4.9 0-8.8 3.8-8.8 8.6S7.1 20.5 12 20.5c1.2 0 2-.8 2-1.7s-.6-1.2-.6-1.9c0-1 .8-1.8 1.9-1.8h1.4a4 4 0 0 0 4-4c0-4.2-3.7-7.9-8.7-7.9z"/><circle cx="8" cy="10" r=".9"/><circle cx="12" cy="7.6" r=".9"/><circle cx="15.8" cy="10" r=".9"/></symbol>
+<symbol id="i-hike" viewBox="0 0 24 24"><path d="M2.5 19.5 9 9.2l3.6 5.2 2-2.8 6.9 7.9z"/><circle cx="17" cy="5.6" r="1.8"/></symbol>
+<symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.6"/><path d="M7.5 5v14M16.5 5v14M3 9.5h4.5M3 14.5h4.5M16.5 9.5H21M16.5 14.5H21"/></symbol>
+<symbol id="i-boxing" viewBox="0 0 24 24"><path d="M6.4 9.2a4.6 4.6 0 0 1 9.2 0v2.2h1.5a2.8 2.8 0 0 1 0 5.6h-1.5v2.4H6.4z"/><path d="M6.4 13.4h9.2"/></symbol>
+<symbol id="i-code" viewBox="0 0 24 24"><path d="M9 7.5 4.5 12 9 16.5M15 7.5 19.5 12 15 16.5M13.2 5.5l-2.4 13"/></symbol>
+<symbol id="i-dance" viewBox="0 0 24 24"><circle cx="13.5" cy="4.6" r="1.9"/><path d="M13.6 7.4 11 12l3.4 2.1 1.3 6.2M11 12 6.6 9.8M11 12l-3.2 4.2-2.6 4"/></symbol>
+<symbol id="i-calli" viewBox="0 0 24 24"><path d="M14.8 3.4 20.6 9.2 10.4 19.4l-5.8 1.4 1.4-5.8z"/><path d="m12.6 5.6 5.8 5.8M5.2 17.4l1.4 1.4"/></symbol>
+<symbol id="i-origami" viewBox="0 0 24 24"><path d="M2.6 19.4 12 4.6l9.4 14.8z"/><path d="M12 4.6v14.8M2.6 19.4 12 14.2l9.4 5.2"/></symbol>
+<symbol id="i-bonsai" viewBox="0 0 24 24"><path d="M12 21v-7.4M12 15.5 8.4 12.8"/><circle cx="8.4" cy="7.6" r="3.2"/><circle cx="15.2" cy="9.6" r="2.8"/><path d="M8 21h8l-1-2.4H9z"/></symbol>
+<symbol id="i-mixology" viewBox="0 0 24 24"><path d="M4 4.5h16L12 13.4z"/><path d="M12 13.4V20M8.2 20h7.6M16.4 7.4 19.4 4"/></symbol>
+<symbol id="i-bird" viewBox="0 0 24 24"><circle cx="7" cy="14.5" r="4"/><circle cx="17" cy="14.5" r="4"/><path d="M10.6 12.6h2.8M7 10.5V6.4h3M17 10.5V6.4h-3"/></symbol>
+<symbol id="i-journal" viewBox="0 0 24 24"><path d="M4.5 4.2h6.3a2 2 0 0 1 1.2 1.9v13a2 2 0 0 0-1.2-1.6H4.5z"/><path d="M19.5 4.2h-6.3A2 2 0 0 0 12 6.1v13a2 2 0 0 1 1.2-1.6h6.3z"/></symbol>
+<symbol id="i-pencil" viewBox="0 0 24 24"><path d="M3.6 20.4 4.8 16 16.2 4.6l3.2 3.2L8 19.2z"/><path d="m14.4 6.4 3.2 3.2"/></symbol>
+<symbol id="i-bake" viewBox="0 0 24 24"><path d="M3.5 15.2a8.5 5.6 0 0 1 17 0v3.4h-17z"/><path d="M8 12.4c.7-1.2 1.6-2 2.6-2.4M13.2 12.4c.7-1.2 1.6-2 2.6-2.4"/></symbol>
+<symbol id="i-plant" viewBox="0 0 24 24"><path d="M5.2 14.5a6.8 6.8 0 0 1 13.6 0v2.8H5.2z"/><path d="M4.6 17.3h14.8V20a.8.8 0 0 1-.8.8H5.4a.8.8 0 0 1-.8-.8z"/><path d="M12 14.4V8.6M12 10.6c-2-.4-3-1.6-3-3.4 1.8 0 2.8.8 3 2M12 12c2-.4 3-1.6 3-3.4-1.8 0-2.8.8-3 2"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.6" y="10" width="14.8" height="10.4" rx="2"/><path d="M8.2 10V7.2a3.8 3.8 0 0 1 7.6 0V10"/><circle cx="12" cy="15.2" r="1.4"/></symbol>
+<symbol id="i-run" viewBox="0 0 24 24"><circle cx="14.6" cy="4.8" r="1.9"/><path d="M13.4 8.2 9.8 11l3.2 2.6.8 6.4M9.8 11 5.6 12.4M13 13.6l-4 2.4-3 4.2M16.4 10.4l2.8 1.6"/></symbol>
+<symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3s5.2 4 5.2 8.6a5.2 5.2 0 0 1-10.4 0C6.8 9 9 7.4 9 7.4S9.8 10 11 10c1.4 0 1-4.6 1-7z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 13 4.5 4.5L19 7"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M5 5 19 19M19 5 5 19"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.6"/><path d="m16 16 4 4"/></symbol>
+<symbol id="i-left" viewBox="0 0 24 24"><path d="M14.5 5 8 12l6.5 7"/></symbol>
+<symbol id="i-right" viewBox="0 0 24 24"><path d="M9.5 5 16 12l-6.5 7"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4.5v15M6 13.5l6 6 6-6"/></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.8"/><path d="m15.6 8.4-2 5.2-5.2 2 2-5.2z"/></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><path d="M12 21s6.6-5.6 6.6-10.2A6.6 6.6 0 0 0 5.4 10.8C5.4 15.4 12 21 12 21z"/><circle cx="12" cy="10.6" r="2.4"/></symbol>
+<symbol id="i-trophy" viewBox="0 0 24 24"><path d="M7.4 4h9.2v5.2a4.6 4.6 0 0 1-9.2 0z"/><path d="M7.4 5.6H4.8v1.8a3 3 0 0 0 2.6 3M16.6 5.6h2.6v1.8a3 3 0 0 1-2.6 3M10 13.8l-.6 3.4h5.2l-.6-3.4M7.8 20.4h8.4"/></symbol>
+<symbol id="i-rocket" viewBox="0 0 24 24"><path d="M12 3.2c3.4 2 5.2 5.4 5.2 9.2l-2.4 3.4H9.2L6.8 12.4c0-3.8 1.8-7.2 5.2-9.2z"/><circle cx="12" cy="10.4" r="1.8"/><path d="M9.2 15.8 7 20l3.4-1.4M14.8 15.8 17 20l-3.4-1.4"/></symbol>
+<symbol id="i-box" viewBox="0 0 24 24"><path d="M3.4 7.6 12 3.4l8.6 4.2v8.8L12 20.6l-8.6-4.2z"/><path d="M3.4 7.6 12 11.8l8.6-4.2M12 11.8v8.8"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.4"/><path d="M2.8 20c0-3.4 2.8-5.6 6.2-5.6s6.2 2.2 6.2 5.6"/><path d="M16 5.2a3.4 3.4 0 0 1 0 6.6M17.4 14.8c2.4.6 3.8 2.4 3.8 5.2"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M4 4l16 16M9.9 5.8A9.6 9.6 0 0 1 12 5.5c6 0 9.5 6.5 9.5 6.5a17 17 0 0 1-3 3.7M6.4 7.4C3.9 9.2 2.5 12 2.5 12S6 18.5 12 18.5c1.5 0 2.9-.4 4-1M9.9 9.9a3 3 0 0 0 4.2 4.2"/></symbol>
+<symbol id="i-yarn" viewBox="0 0 24 24"><circle cx="11" cy="13" r="7.6"/><path d="M5.2 9c3.2.6 7.4 3.6 9 10.4M7.6 6.4c3 2 6.4 6 7.2 12.8M3.8 13.8c3.6-.8 8.6.4 12.6 3.6M16.6 4.2 20.8 8.4"/></symbol>
+<symbol id="i-yoga" viewBox="0 0 24 24"><circle cx="12" cy="4.6" r="1.8"/><path d="M12 7.6v6.2M12 9.6 5.6 8M12 9.6l6.4-1.6M12 13.8l-4.6 6.4M12 13.8l4.6 6.4M5.8 20.2h3.2M15 20.2h3.2"/></symbol>
+<symbol id="i-climb" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2.4"/><circle cx="8.4" cy="7.2" r="1.3"/><circle cx="15.4" cy="9" r="1.3"/><circle cx="9.4" cy="13.4" r="1.3"/><circle cx="14.8" cy="16.6" r="1.3"/></symbol>
+<symbol id="i-wave" viewBox="0 0 24 24"><path d="M2.5 8.5c2.2 0 2.2-1.6 4.7-1.6s2.4 1.6 4.8 1.6 2.4-1.6 4.8-1.6 2.5 1.6 4.7 1.6M2.5 13.2c2.2 0 2.2-1.6 4.7-1.6s2.4 1.6 4.8 1.6 2.4-1.6 4.8-1.6 2.5 1.6 4.7 1.6M2.5 17.9c2.2 0 2.2-1.6 4.7-1.6s2.4 1.6 4.8 1.6 2.4-1.6 4.8-1.6 2.5 1.6 4.7 1.6"/></symbol>
+<symbol id="i-bike" viewBox="0 0 24 24"><circle cx="5.8" cy="16" r="3.6"/><circle cx="18.2" cy="16" r="3.6"/><path d="M5.8 16 9.6 8.6h6.2L18.2 16M9.6 8.6l3.4 7.4H5.8M14.6 5.6h2.6"/></symbol>
+<symbol id="i-sprout" viewBox="0 0 24 24"><path d="M12 20.6v-8.4M12 12.2C12 8.4 9.4 6 5.2 6c0 3.8 2.6 6.2 6.8 6.2zM12 14.4c0-3.4 2.4-5.6 6.6-5.6 0 3.4-2.4 5.6-6.6 5.6zM6.6 20.6h10.8"/></symbol>
+<symbol id="i-hammer" viewBox="0 0 24 24"><path d="M13.4 7.6 4.6 16.4a1.9 1.9 0 0 0 2.7 2.7l8.8-8.8"/><path d="M11.2 5.4 14 2.8l7 7-2.6 2.8-2.4-2.4-2.4-2.4z"/></symbol>
+<symbol id="i-chip" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1.6"/><rect x="10" y="10" width="4" height="4" rx=".6"/><path d="M9.6 3.4V7M14.4 3.4V7M9.6 17v3.6M14.4 17v3.6M3.4 9.6H7M3.4 14.4H7M17 9.6h3.6M17 14.4h3.6"/></symbol>
+<symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.6 11a6.4 6.4 0 0 0 12.8 0M12 17.4v3.4M8.6 20.8h6.8"/></symbol>
+<symbol id="i-keys" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.6"/><path d="M7.5 12.4V19M12 12.4V19M16.5 12.4V19M6 5v7.4h3V5M15 5v7.4h3V5"/></symbol>
+<symbol id="i-drum" viewBox="0 0 24 24"><ellipse cx="12" cy="10" rx="8" ry="3"/><path d="M4 10v6.2c0 1.7 3.6 3 8 3s8-1.3 8-3V10M7.4 3l4 5M16.6 3l-4 5M8 12.8v6M16 12.8v6"/></symbol>
+<symbol id="i-mask" viewBox="0 0 24 24"><path d="M4.6 4.6h14.8v6.2a7.4 7.4 0 0 1-14.8 0z"/><path d="M8.2 9.2c.6-.8 1.8-.8 2.4 0M13.4 9.2c.6-.8 1.8-.8 2.4 0M8.8 13.2c1.8 1.8 4.6 1.8 6.4 0"/></symbol>
+<symbol id="i-feather" viewBox="0 0 24 24"><path d="M20.4 3.6C12.8 3.6 7 9 7 17h0c6.6 0 11.2-4.4 12-10.4"/><path d="M3.6 20.4 7 17M7 17l6.8-6.8"/></symbol>
+<symbol id="i-telescope" viewBox="0 0 24 24"><path d="M3.2 13.6 14.6 7.8l2.1 4.2-11.4 5.8z"/><path d="m14.6 7.8 4.2-2.1 2.1 4.2-4.2 2.1M9.6 15.8 7.4 21M11.4 15l2.4 6"/></symbol>
+<symbol id="i-shuttle" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.6"/><path d="M7.9 16.1 13.6 4.4l6 6-11.7 5.7"/><path d="m10.6 10.6 3 3M12.2 7.4l4.4 4.4"/></symbol>
+<symbol id="i-cube" viewBox="0 0 24 24"><path d="M12 2.8 20 7.4v9.2L12 21.2l-8-4.6V7.4z"/><path d="M4 7.4 12 12l8-4.6M12 12v9.2M8 5.1l8 4.6M4 12l8 4.6 8-4.6"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3.4 3 8.2l9 4.8 9-4.8z"/><path d="m3 12.2 9 4.8 9-4.8M3 16.2l9 4.8 9-4.8"/></symbol>
+<symbol id="i-gamepad" viewBox="0 0 24 24"><path d="M7.2 7.6h9.6a4.4 4.4 0 0 1 4.4 4.4v2.4a3.2 3.2 0 0 1-5.8 1.9l-1-1.5H9.6l-1 1.5a3.2 3.2 0 0 1-5.8-1.9V12a4.4 4.4 0 0 1 4.4-4.4z"/><path d="M7.6 10.4v3.2M6 12h3.2"/><circle cx="15.4" cy="11" r=".6"/><circle cx="17.2" cy="13" r=".6"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.8"/><path d="M3.2 12h17.6M12 3.2c2.4 2.4 3.6 5.4 3.6 8.8s-1.2 6.4-3.6 8.8c-2.4-2.4-3.6-5.4-3.6-8.8S9.6 5.6 12 3.2z"/></symbol>
+<symbol id="i-needle" viewBox="0 0 24 24"><path d="M4.4 19.6 18.6 5.4M16.8 3.6l3.6 3.6"/><path d="M18.6 5.4c-2.4 4.6-7 6.8-13.4 6.2"/></symbol>
+<symbol id="i-cup" viewBox="0 0 24 24"><path d="M4 9h12.6v4.4a6 6 0 0 1-6 6h-.6a6 6 0 0 1-6-6z"/><path d="M16.6 11h1.6a2.6 2.6 0 0 1 0 5.2h-2.1M7.8 3.8c0 1.2 1 1.2 1 2.4M11.8 3.8c0 1.2 1 1.2 1 2.4"/></symbol>
+<symbol id="i-frames" viewBox="0 0 24 24"><rect x="2.8" y="9" width="12" height="10.4" rx="1.4"/><path d="M6 9V6.4a1.2 1.2 0 0 1 1.2-1.2h10.2a1.2 1.2 0 0 1 1.2 1.2v8.2a1.2 1.2 0 0 1-1.2 1.2h-2.6M9.2 5.2V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1.4"/></symbol>
+<symbol id="i-tablet" viewBox="0 0 24 24"><rect x="4" y="2.8" width="16" height="18.4" rx="2.4"/><path d="m9.2 15.4 5.8-5.8 1.6 1.6-5.8 5.8H9.2z"/></symbol>
+<symbol id="i-cards" viewBox="0 0 24 24"><rect x="3.4" y="6.4" width="10.6" height="14.4" rx="1.6"/><path d="M8.6 3.2h10.4a1.6 1.6 0 0 1 1.6 1.6v12.4"/><path d="M8.7 11.2c-1-1-2.6-.2-2.2 1.2.3 1.1 2.2 2.4 2.2 2.4s1.9-1.3 2.2-2.4c.4-1.4-1.2-2.2-2.2-1.2z"/></symbol>
+</defs>
+</svg>
+
+<!-- ============ INTRO ============ -->
+<div class="intro" id="intro" hidden>
+  <div class="intro-stage">
+    <div class="intro-glow" id="introGlow"></div>
+    <div class="mono" id="mono" role="img" aria-label="HobbyFlix">
+      <span class="mono-bar mono-x" id="monoX"></span>
+      <span class="mono-bar mono-l" id="monoL"></span>
+      <span class="mono-bar mono-r" id="monoR"></span>
+      <span class="mono-sheen" id="monoSheen"></span>
+    </div>
+    <div class="intro-word" id="introWord" aria-hidden="true">HOBBYFLIX</div>
+  </div>
+  <div class="intro-stripes" id="introStripes"></div>
+  <div class="intro-ctrl">
+    <button class="intro-btn" id="introSound">Play with sound</button>
+    <button class="intro-btn" id="introSkip">Skip intro</button>
+  </div>
+</div>
+
+<!-- ============ SIGN IN ============ -->
+<section class="auth" id="auth" hidden aria-labelledby="authTitle">
+  <div class="auth-wall" id="authWall" aria-hidden="true"></div>
+  <div class="auth-shade"></div>
+  <header class="auth-top"><span class="wordmark">HOBBY<b>FLIX</b></span></header>
+  <div class="auth-main">
+    <div class="auth-card">
+      <h1 id="authTitle">Sign in</h1>
+      <p class="auth-sub" id="authSub">Pick up where you left off — your passport, streak and trials are waiting.</p>
+      <form id="authForm" novalidate>
+        <div class="field" id="nameField" hidden>
+          <label for="authName">Name</label>
+          <input id="authName" autocomplete="name" placeholder="What should we call you?">
+        </div>
+        <div class="field">
+          <label for="authEmail">Email</label>
+          <input id="authEmail" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="authPass">Password</label>
+          <div class="pw">
+            <input id="authPass" type="password" autocomplete="current-password" placeholder="Your password">
+            <button type="button" class="pw-toggle" id="pwToggle" aria-label="Show password"><svg><use href="#i-eye"/></svg></button>
+          </div>
+        </div>
+        <div class="auth-msg" id="authMsg" role="alert" hidden></div>
+        <div class="auth-row">
+          <label class="check"><input type="checkbox" id="authRemember" checked><span>Remember me</span></label>
+          <button type="button" class="link" id="forgotBtn">Forgot password?</button>
+        </div>
+        <button class="btn btn--primary btn--wide" type="submit" id="authSubmit">Sign in</button>
+      </form>
+      <div class="auth-or">or</div>
+      <button class="btn btn--wide" id="guestBtn" type="button">Continue as guest</button>
+      <div class="quick">
+        <div class="quick-h">Demo accounts — tap one to sign in</div>
+        <div class="quick-row" id="quickRow"></div>
+      </div>
+      <p class="auth-switch" id="authSwitch">New to HobbyFlix? <button type="button" class="link" id="switchBtn">Create an account</button></p>
+    </div>
+    <p class="auth-fine">Demo build. Accounts are placeholder data and are stored only in this browser.</p>
+  </div>
+</section>
+
+<!-- ============ SITE (shown after sign-in) ============ -->
+<div id="app" hidden>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#top" class="wordmark">HOBBY<b>FLIX</b></a>
+    <nav class="nav-links">
+      <a href="#discover">Discover</a>
+      <a href="#challenges">Challenges</a>
+      <a href="#hobbybox">HobbyBox</a>
+      <a href="#experiences">Experiences</a>
+      <a href="#community">Community</a>
+    </nav>
+    <div class="nav-right">
+      <button class="btn btn--sm" data-open-profile>My hobby profile</button>
+      <div class="acct">
+        <button class="avatar" id="navAvatar" aria-haspopup="menu" aria-expanded="false" aria-controls="acctMenu" aria-label="Account menu">G</button>
+        <div class="acct-menu" id="acctMenu" role="menu" hidden>
+          <div class="acct-head">
+            <div class="avatar" id="acctAvatar">G</div>
+            <div><div class="acct-name" id="acctName">Guest explorer</div><div class="acct-mail" id="acctMail"></div></div>
+          </div>
+          <button role="menuitem" data-open-profile>My hobby profile</button>
+          <button role="menuitem" data-acct="intro">Replay intro</button>
+          <button role="menuitem" data-acct="signout" class="danger">Sign out</button>
+        </div>
+      </div>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#discover">Discover</a>
+  <a href="#challenges">Challenges</a>
+  <a href="#hobbybox">HobbyBox</a>
+  <a href="#experiences">Experiences</a>
+  <a href="#community">Community</a>
+  <button class="btn btn--primary btn--wide" data-open-quiz>Discover my hobby</button>
+  <div class="mm-sub">
+    <button class="btn" data-acct="intro">Replay intro</button>
+    <button class="btn" data-acct="signout">Sign out</button>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<main id="top">
+<section class="hero section--tight">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Personalised hobby discovery</span>
+      <h1>Don't choose<br>your next hobby.<span class="line2">Discover it.</span></h1>
+      <p class="hero-sub">HobbyFlix learns what makes you curious and recommends hobbies you're actually likely to enjoy — then gives you seven days to find out.</p>
+      <div class="hero-cta">
+        <button class="btn btn--primary" data-open-quiz><svg class="btn-play" viewBox="0 0 10 12"><path d="M0 0v12l10-6z"/></svg>Discover my hobby</button>
+        <button class="btn" data-scroll="#discover">Explore hobbies</button>
+      </div>
+      <div class="hero-meta">
+        <span><b id="heroCount">24</b> hobbies in the library</span>
+        <span><b>7</b>-day trials, no gear needed</span>
+        <span><b>₹0</b> to start</span>
+      </div>
+    </div>
+    <div class="phone" aria-hidden="true">
+      <div class="phone-screen">
+        <div class="phone-top">
+          <div class="tiny" id="phoneFor">Tonight's pick for you</div>
+          <div class="big">Because you're curious with your hands</div>
+        </div>
+        <div class="phone-feed" id="phoneFeed"></div>
+        <div class="phone-bar">Start 7-day trial</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rail-wrap">
+    <div class="rail-head rail-pad"><h3 id="heroRailTitle">Top picks for you</h3><span class="cnt">Ranked by your match</span></div>
+    <button class="rail-btn prev" data-rail="heroRail" data-dir="-1" aria-label="Scroll left"><svg><use href="#i-left"/></svg></button>
+    <div class="rail" id="heroRail"></div>
+    <button class="rail-btn next" data-rail="heroRail" data-dir="1" aria-label="Scroll right"><svg><use href="#i-right"/></svg></button>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============ BIG IDEA ============ -->
+<section class="section section--coal">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="kicker">The idea</span>
+        <h2>What if Netflix recommended things you could do?</h2>
+      </div>
+      <p>Same engine, different output. One ends your evening on the sofa. The other ends it with clay under your fingernails.</p>
+    </div>
+    <div class="idea">
+      <div class="idea-panel" id="ideaA">
+        <span class="src">Netflix</span>
+        <div class="idea-q">"What do you want to watch?"</div>
+        <div class="idea-list"><span>2 hours gone</span><span>Nothing changed</span><span>Autoplay in 5…</span></div>
+      </div>
+      <div class="idea-arrow"><svg><use href="#i-right"/></svg></div>
+      <div class="idea-panel on" id="ideaB">
+        <span class="src">HobbyFlix</span>
+        <div class="idea-q">"What do you want to try?"</div>
+        <div class="idea-list"><span>20 minutes tonight</span><span>Something exists that didn't</span><span>Day 2 tomorrow</span></div>
+      </div>
+    </div>
+    <div class="idea-switch"><button class="dotbtn" data-idea="0" aria-label="Show Netflix side"></button><button class="dotbtn on" data-idea="1" aria-label="Show HobbyFlix side"></button></div>
+  </div>
+</section>
+
+<!-- ============ ALGORITHM ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="kicker">The algorithm</span>
+        <h2>It learns your instincts, not your job title</h2>
+      </div>
+      <p>Move the sliders. Matches update live — this is the same engine the quiz runs.</p>
+    </div>
+    <div class="algo">
+      <div class="sliders" id="sliders"></div>
+      <aside class="algo-out">
+        <h4>Your live matches</h4>
+        <p class="hint" id="algoHint">Based on six preference axes.</p>
+        <div class="live-list" id="liveList"></div>
+        <button class="btn btn--primary btn--wide" data-open-quiz>Build my hobby profile</button>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRY BEFORE YOU COMMIT ============ -->
+<section class="section section--coal" id="challenges">
+  <div class="wrap commit">
+    <div>
+      <span class="kicker">7-day trials</span>
+      <h2>You don't need to buy the guitar to find out you hate guitar.</h2>
+      <p>Every hobby starts as a seven-day trial built from things you already own or that fit in an envelope. Ten to thirty minutes a day. On day seven you decide: keep it, or drop it with zero guilt and try something else.</p>
+      <div class="social-actions">
+        <button class="btn btn--primary" id="startTrialBtn">Start this challenge</button>
+        <button class="btn" data-scroll="#discover">Pick a different hobby</button>
+      </div>
+    </div>
+    <div>
+      <div class="prog-row"><span id="challengeTitle">7-day photography challenge</span><span>Day <b id="dayCount">0</b> / 7</span></div>
+      <div class="progress"><i id="challengeBar" style="width:0%"></i></div>
+      <div class="days" id="daysGrid"></div>
+      <p class="note">Tap a day to mark it done — your progress is saved on this device.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DISCOVERY FEED ============ -->
+<section class="section" id="discover">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="kicker">The library</span>
+        <h2>Your next obsession is probably hiding in here</h2>
+      </div>
+      <p><span class="libTotal">24</span> hobbies, sorted the way you'd actually browse them.</p>
+    </div>
+    <div class="toolbar">
+      <label class="search">
+        <svg><use href="#i-search"/></svg>
+        <input id="searchInput" type="search" placeholder="Search hobbies, tags, moods…" aria-label="Search hobbies">
+      </label>
+      <div class="filters" id="filters"></div>
+    </div>
+  </div>
+  <div id="rails"></div>
+  <div class="wrap"><div class="grid-results" id="results" hidden></div></div>
+</section>
+
+<!-- ============ PASSPORT ============ -->
+<section class="section section--coal">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="kicker">Progress</span>
+        <h2>Your hobby passport</h2>
+      </div>
+      <p>Proof that you tried things. Dropping a hobby counts as a finding, not a failure.</p>
+    </div>
+    <div class="passport">
+      <div class="pp-top">
+        <div class="pp-id">
+          <div class="avatar" id="ppAvatar">YOU</div>
+          <div>
+            <div class="nm" id="ppName">Unclaimed explorer</div>
+            <div class="sub" id="ppSub">Take the quiz to name your profile</div>
+          </div>
+        </div>
+        <button class="btn btn--sm" id="resetBtn">Reset demo data</button>
+      </div>
+      <div class="pp-stats">
+        <div><div class="stat-num" id="ppExplored">0</div><div class="stat-lbl">hobbies explored</div></div>
+        <div><div class="stat-num" id="ppChallenges">0</div><div class="stat-lbl">challenges completed</div></div>
+        <div><div class="stat-num" id="ppStreak">0</div><div class="stat-lbl">day exploration streak</div></div>
+      </div>
+      <div class="badges" id="badges"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOBBYBOX ============ -->
+<section class="section" id="hobbybox">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="kicker">Hardware, optional</span>
+        <h2>HobbyBox: everything you need to start, nothing you don't</h2>
+      </div>
+      <p>Boxes exist to remove the trip to the shop. They're an activation tool — the product is the discovery.</p>
+    </div>
+    <div class="grid-boxes" id="boxGrid"></div>
+    <p class="note">Boxes ship consumables for one real build, not a starter kit that outlives your interest. Expensive gear is rented through partner studios instead.</p>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCES ============ -->
+<section class="section section--coal" id="experiences">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="kicker">Offline</span>
+        <h2>Take your hobby off the screen</h2>
+      </div>
+      <p>Finish a trial and rate it "hooked" — nearby studios, walks and classes unlock.</p>
+    </div>
+    <div class="grid-exp" id="expGrid"></div>
+    <p class="note">Bookings are handled by partner studios. HobbyFlix earns a 10–20% commission on each seat, which is how the free tier stays free.</p>
+  </div>
+</section>
+
+<!-- ============ COMMUNITY ============ -->
+<section class="section" id="community">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="kicker">Community</span>
+        <h2>Hobbies are better together</h2>
+      </div>
+      <p>Everyone in your cohort started on the same Monday, so nobody's work is polished yet.</p>
+    </div>
+    <div class="people" id="people"></div>
+    <div class="social-actions">
+      <button class="btn btn--primary" id="challengeFriendBtn">Challenge a friend</button>
+      <button class="btn" id="shareBtn">Share my passport</button>
+    </div>
+    <div style="margin-top:34px;max-width:620px">
+      <h4 style="font-family:Archivo,sans-serif;font-size:15px;margin:0 0 6px">This week in your cohort</h4>
+      <div id="feed"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="section section--coal">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="kicker">Pricing</span>
+        <h2>Free to find out. Paid to keep going.</h2>
+      </div>
+      <p>No hobby paywall on day one — you should know if you like something before you pay for it.</p>
+    </div>
+    <div class="plans" id="plans"></div>
+    <div class="rev">
+      <div class="rev-card"><div class="t">Marketplace commission</div><div class="d">10–20% on every workshop, walk and class booked through partner studios.</div></div>
+      <div class="rev-card"><div class="t">Brand partnerships</div><div class="d">Sponsored challenges run by instrument, camera and craft brands who want first-time users, not experts.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIFFERENTIATOR ============ -->
+<section class="section">
+  <div class="wrap">
+    <h2 class="quote-big">We're not competing with YouTube. We're competing with <em>uncertainty.</em></h2>
+    <div class="vs">
+      <div class="vs-card">
+        <div class="who">YouTube</div>
+        <div class="ask">"How do I learn photography?"</div>
+        <div class="gives">Answers a question you only ask once you've already decided. Infinite, uncurated, and paid to keep you watching.</div>
+      </div>
+      <div class="vs-card ours">
+        <div class="who">HobbyFlix</div>
+        <div class="ask">"Is photography actually for me?"</div>
+        <div class="gives">Answers the question that comes first. We only win when you close the app and go do the thing.</div>
+        <div class="vs-tri"><span>Discovery</span><span>Structure</span><span>Experimentation</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLYWHEEL ============ -->
+<section class="section section--coal">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="kicker">Why it compounds</span>
+        <h2>Every trial makes the next recommendation better</h2>
+      </div>
+      <p>Nobody else has data on which hobbies people quit. That's the asset.</p>
+    </div>
+    <div class="fly">
+      <div class="fly-stage" id="flyStage"></div>
+      <div class="fly-steps" id="flySteps"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final">
+  <div class="wrap">
+    <h2>Don't just watch life.<span class="try">Try it.</span></h2>
+    <p>Netflix helps you decide what to watch tonight. HobbyFlix helps you decide what to become next.</p>
+    <div class="hero-cta">
+      <button class="btn btn--primary" data-open-quiz><svg class="btn-play" viewBox="0 0 10 12"><path d="M0 0v12l10-6z"/></svg>Discover your hobby</button>
+      <button class="btn" data-scroll="#discover">Explore the library</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="wordmark" style="font-size:16px">HOBBY<b>FLIX</b></div>
+      <div style="margin-top:6px">Stop scrolling. Start trying.</div>
+    </div>
+    <div class="foot-links">
+      <a href="#discover">Discover</a><a href="#challenges">Challenges</a><a href="#hobbybox">HobbyBox</a>
+      <a href="#experiences">Experiences</a><a href="#community">Community</a><a href="mailto:pitch@hobbyflix.co">pitch@hobbyflix.co</a>
+    </div>
+  </div>
+</footer>
+</main>
+</div><!-- /#app -->
+
+<!-- ============ OVERLAYS ============ -->
+<div class="overlay" id="quizOverlay" role="dialog" aria-modal="true" aria-label="Hobby discovery quiz">
+  <div class="sheet" id="quizSheet">
+    <button class="sheet-x" data-close aria-label="Close"><svg><use href="#i-x"/></svg></button>
+    <div id="quizContent"></div>
+  </div>
+</div>
+
+<div class="overlay" id="detailOverlay" role="dialog" aria-modal="true" aria-label="Hobby details">
+  <div class="sheet" id="detailSheet">
+    <button class="sheet-x" data-close aria-label="Close"><svg><use href="#i-x"/></svg></button>
+    <div id="detailContent"></div>
+  </div>
+</div>
+
+<div class="overlay" id="smallOverlay" role="dialog" aria-modal="true" aria-label="Dialog">
+  <div class="sheet sheet--sm" id="smallSheet">
+    <button class="sheet-x" data-close aria-label="Close"><svg><use href="#i-x"/></svg></button>
+    <div id="smallContent"></div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+
+<!-- Order matters: data → accounts → intro → auth → site → entry point -->
+<script src="assets/js/data.js" defer></script>
+<script src="assets/js/users.js" defer></script>
+<script src="assets/js/intro.js" defer></script>
+<script src="assets/js/auth.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
